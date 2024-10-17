@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Monsterrat";
+  src: url("../../fonts/monsterrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Monsterrat Medium";
+  src: url("../../fonts/monsterrat/Montserrat-Medium.ttf");
+}
+
+@mixin font-monsterrat {
+  font-family: "Monsterrat";
+  font-style: normal;
+}
+
+@mixin font-monsterrat-medium {
+  font-family: "Monsterrat Medium";
+  font-style: normal;
+}

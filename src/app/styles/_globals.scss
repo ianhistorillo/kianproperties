@@ -1,10 +1,6 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -79,7 +75,44 @@
   margin: 0;
 }
 
+@import "./_main.scss";
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Flashlight Overlay */
+:root {
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+}
+:root:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 40vmax at var(--cursorX) var(--cursorY),
+    rgba(32, 50, 88, 0.504) 0%,
+    transparent 100%
+  );
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: $primary;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }

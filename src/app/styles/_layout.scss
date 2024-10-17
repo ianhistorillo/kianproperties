@@ -1,0 +1,117 @@
+@import "_media_query.scss";
+
+/** layout widths */
+.i- {
+  &col100 {
+    width: 100%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col90 {
+    width: 90%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col80 {
+    width: 80%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col70 {
+    width: 70%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col60 {
+    width: 60%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col50 {
+    width: 50%;
+
+    &.pd-top-1 {
+      padding-top: 1rem;
+    }
+
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col40 {
+    width: 40%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col30 {
+    width: 30%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col25 {
+    width: 25%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col20 {
+    width: 20%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &col10 {
+    width: 10%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
+  &fl {
+    float: left;
+  }
+  &fr {
+    float: right;
+  }
+  &container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    &-aboutpage {
+      display: flex;
+      @include mobile-lg {
+        display: block;
+        padding: 0 25px 55px 25px;
+      }
+    }
+  }
+  &clr {
+    clear: both;
+  }
+  &pd {
+    &-top {
+      &-10 {
+        padding-top: 10%;
+      }
+    }
+  }
+}
+
+.padd- {
+  &right {
+    &-2rem {
+      padding-right: 2rem;
+    }
+  }
+}
+
+.margin-bot {
+  margin-bottom: 2rem;
+}

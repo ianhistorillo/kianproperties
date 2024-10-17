@@ -1,0 +1,90 @@
+{
+  "landforsale": [
+    {
+      "title": "5 BR House and Lot",
+      "subheader": "Greenwoods - Northfolk Ridge",
+      "imgUrl": "/public/assets/5br.jpeg",
+      "area": "218 sqm",
+      "price": "₱9,000,000",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-1"
+    },
+    {
+      "title": "2 BR Bungalow",
+      "subheader": "Greenwoods Height",
+      "area": "180 Sqm",
+      "imgUrl": "/public/assets/2br.jpeg",
+      "price": "₱4,800,000",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-2"
+    },
+    {
+      "title": "3 BR House and Lot",
+      "subheader": "Greenwoods Executive Village",
+      "area": "180 Sqm",
+      "imgUrl": "/public/assets/3br.jpeg",
+      "price": "₱7,500,000",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-3"
+    },
+    {
+      "title": "4 BR House and Lot",
+      "subheader": "Greenwoods Executive Village",
+      "area": "180 Sqm",
+      "imgUrl": "/public/assets/4br.jpeg",
+      "price": "₱5,800,000",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-4"
+    },
+    {
+      "title": "2BR House and Lot - PHASE 1",
+      "subheader": "Greenwoods Executive Village (RENT)",
+      "area": "180 Sqm",
+      "imgUrl": "/public/assets/2br-phase1.png",
+      "price": "₱20,000.00",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-5"
+    },
+    {
+      "title": "2BR House and Lot - PHASE 3A",
+      "subheader": "Greenwoods Executive Village (RENT)",
+      "imgUrl": "/public/assets/2br-phase3.jpeg",
+      "area": "180 Sqm",
+      "price": "₱15,000.00",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-6"
+    },
+    {
+      "title": "4BR House and Lot - PHASE 4",
+      "subheader": "Greenwoods Executive Village",
+      "imgUrl": "/public/assets/4br-phase1.jpeg",
+      "area": "180 Sqm",
+      "price": "₱9,000,000",
+      "bed": 2,
+      "bath": 2,
+      "car": 1,
+      "description": "",
+      "slug": "lfs-7"
+    }
+  ],
+  "houseandland": [{}],
+  "townhomes": [{}]
+}
