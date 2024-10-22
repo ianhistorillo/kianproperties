@@ -32,10 +32,26 @@ const SearchFilter = (props) => {
     return <div>Loading...</div>;
   }
 
+  const onBedButtonClick = () => {
+    console.log("test");
+  };
+
+  const onBathButtonClick = () => {
+    console.log("test");
+  };
+
+  const onCarButtonClick = () => {
+    console.log("test");
+  };
+
+  const onLocationSelectChange = () => {
+    console.log("test");
+  };
+
   return (
     <div className="i-col100 i-fl">
       <div className="lfss-searchfilter">
-        <div className="i-col33 i-fl">
+        <div className="i-col33 i-fl i-padd">
           <DisplaySlider
             slider={data.sliders.price}
             values={data.search.price}
@@ -44,8 +60,6 @@ const SearchFilter = (props) => {
           >
             PRICE
           </DisplaySlider>
-        </div>
-        <div className="i-col33 i-fl">
           <DisplaySlider
             slider={data.sliders.area}
             values={data.search.area}
@@ -54,8 +68,6 @@ const SearchFilter = (props) => {
           >
             AREA
           </DisplaySlider>
-        </div>
-        <div className="i-col33 i-fl">
           <DisplaySlider
             slider={data.sliders.frontage}
             values={data.search.frontage}
@@ -65,12 +77,59 @@ const SearchFilter = (props) => {
             FRONTAGE
           </DisplaySlider>
         </div>
-        <div className="i-col100 i-fl">
-          <div className="search-buttons">
+        <div className="i-col33 i-fl i-padd align-center">
+          <DisplayButtonOptions
+            options={data.search.bed.options}
+            selected={data.search.bed.selected}
+            onButtonClick={onBedButtonClick}
+            addclass="hals-options-padd"
+          >
+            Beds
+          </DisplayButtonOptions>
+          <DisplayButtonOptions
+            options={data.search.bath.options}
+            selected={data.search.bath.selected}
+            onButtonClick={onBathButtonClick}
+            addclass="hals-options-pad"
+          >
+            Baths
+          </DisplayButtonOptions>
+          <DisplayButtonOptions
+            options={data.search.car.options}
+            selected={data.search.car.selected}
+            onButtonClick={onCarButtonClick}
+            addclass="hals-options-pad"
+          >
+            Cars
+          </DisplayButtonOptions>
+        </div>
+        <div className="i-col33 i-fl i-padd">
+          <DisplaySelectDropdown
+            options={data.search.type.options}
+            defaultValue={data.search.type.selected}
+            selected={data.search.type.selected}
+            onSelectChange={onLocationSelectChange}
+            addclass="selector"
+          >
+            {" "}
+            Type{" "}
+          </DisplaySelectDropdown>
+          <DisplaySelectDropdown
+            options={data.search.location.options}
+            defaultValue={data.search.location.selected}
+            selected={data.search.location.selected}
+            onSelectChange={onLocationSelectChange}
+            addclass="hals-options-pad selector"
+          >
+            {" "}
+            Location{" "}
+          </DisplaySelectDropdown>
+          <div className="i-col100 search-buttons hals-options-pad i-fl">
             <div className="search"> SEARCH </div>
           </div>
           <div className="search-buttons"></div>
         </div>
+        <div className="i-col100 i-fl"></div>
       </div>
     </div>
   );
@@ -140,6 +199,62 @@ const DisplayValues = (props) => {
     default:
       return null;
   }
+};
+
+const DisplayButtonOptions = (props) => {
+  return (
+    <div
+      className={`i-col100 hals-options i-posr ${props.addclass} padd-left-2rem i-fl`}
+    >
+      <div className="hals-options hals-options-title i-posr">
+        {props.children}
+      </div>
+      {props.options.map((option, idx) => {
+        const selected = option === props.selected.toString() ? "selected" : "";
+        const display = parseInt(option, 10) === 0 ? "All" : `${option}+`;
+        return (
+          <div
+            className={`hals-options hals-options-option ${selected}`}
+            key={idx}
+            onClick={(e) => props.onButtonClick(option)}
+          >
+            <div className="hals-options-circle">{display}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const DisplaySelectDropdown = (props) => {
+  let optionName = "";
+  return (
+    <div className={`i-col100 hals-options i-posr ${props.addclass} i-fl`}>
+      <div className="hals-options hals-options-title">{props.children}</div>
+      <div className="hals-options hals-options-select i-posr">
+        <select
+          className="hals-select"
+          onChange={(e) => props.onSelectChange(e.target.value)}
+        >
+          {props.options.map((option, idx) => {
+            if (option === props.selected) {
+              return (
+                <option key={idx} value={option} selected>
+                  {option}
+                </option>
+              );
+            } else {
+              return (
+                <option key={idx} value={option}>
+                  {option}
+                </option>
+              );
+            }
+          })}
+        </select>
+      </div>
+    </div>
+  );
 };
 
 export default SearchFilter;

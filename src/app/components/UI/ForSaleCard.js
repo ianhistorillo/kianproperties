@@ -29,13 +29,13 @@ const ForSaleCard = (props) => {
         <div className="i-col50 i-fr">
           <div className="forsale-card-detail-specs">
             <div className="specs">
-              <Bed /> <span>5</span>
+              <Bed /> <span>{props.bed}</span>
             </div>
             <div className="specs">
-              <Bath /> <span>5</span>
+              <Bath /> <span>{props.bath}</span>
             </div>
             <div className="specs">
-              <Car /> <span>5</span>
+              <Car /> <span>{props.car}</span>
             </div>
           </div>{" "}
         </div>

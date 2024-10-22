@@ -8,16 +8,32 @@ import ForSaleCard from "./components/UI/ForSaleCard";
 import HomeLogo from "./components/common/HomeLogo";
 import SearchFilter from "./land-for-sale/SearchFilter";
 import SellingContent from "./components/LandingPage/SellingContent";
+import NowSelling from "./components/LandingPage/NowSelling";
 
 // house images
-import FirstItem from "../../public/assets/2br.jpeg";
-import SecondItem from "../../public/assets/3br.jpeg";
-import ThirdItem from "../../public/assets/4br.jpeg";
-import FifthItem from "../../public/assets/5br.jpeg";
-import SixItem from "../../public/assets/2br-phase1.png";
-import SeventhItem from "../../public/assets/2br-phase3.jpeg";
-import EightItem from "../../public/assets/4br-phase1.jpeg";
+// import FirstItem from "../../public/assets/2br.jpeg";
+// import SecondItem from "../../public/assets/3br.jpeg";
+// import ThirdItem from "../../public/assets/4BR-HOUSE-AND-LAND.jpeg";
+// import FifthItem from "../../public/assets/5br.jpeg";
+// import SixItem from "../../public/assets/5BR-HOUSE-AND-LAND-EAGLE-RIDGE.jpeg";
+// import SeventhItem from "../../public/assets/4BR-HOUSE-AND-LAND-2.jpeg";
+// import EightItem from "../../public/assets/5BR-HOUSE-AND-LAND.jpeg";
+// import NinthItem from "../../public/assets/4br-phase1.jpeg";
+// import TenthItem from "../../public/assets/LOT-1.jpeg";
+// import EleventhItem from "../../public/assets/LOT-2.jpeg";
+// import TwelveItem from "../../public/assets/LOT-3.jpeg";
+// import ThirtheenItem from "../../public/assets/LOT-4.jpeg";
+// import FourteenItem from "../../public/assets/LOT-5.jpeg";
+// import FifteenthItem from "../../public/assets/HOUSE-AND-LOT.jpeg";
+// import SixteenthItem from "../../public/assets/LOT-6.jpeg";
+// import SeventeenthItem from "../../public/assets/CONDO.jpeg";
+// import EighteenthItem from "../../public/assets/CONDO-2.jpeg";
+// import NineteenthItem from "../../public/assets/CONDO-3.jpeg";
+// import TwenteenthItem from "../../public/assets/CONDO-4.jpeg";
+// import TwentyonethItem from "../../public/assets/CONDO-5.jpeg";
+// import TwentytwoItem from "../../public/assets/PENTHOUSE.jpeg";
 import ContactForm from "./components/Form/ContactForm";
+4;
 
 export default function Home() {
   return (
@@ -47,72 +63,7 @@ export default function Home() {
         </div>
       </div>
       <SellingContent />
-      <div className="now-selling-page">
-        <div className="i-col100 now-selling-title">
-          <h1> NOW SELLING </h1>
-          <span className="underline"></span>
-        </div>
-        <div className="i-col100 now-selling-section">
-          <div className="i-col100 i-fl">
-            <div className="now-selling-filter">
-              <SearchFilter />
-            </div>
-          </div>
-          <div className="i-col100 i-fl">
-            <div className="now-selling-section-list">
-              <ForSaleCard
-                imageSrc={FifthItem}
-                title="5 BR House and Lot"
-                desc="Greenwoods - Northfolk Ridge"
-                price="₱9,000,000"
-                slug={`lfs-1`}
-              />
-              <ForSaleCard
-                imageSrc={FirstItem}
-                title="2BR Bungalow"
-                desc="Greenwoods Height"
-                price="₱4,800,000"
-                slug={`lfs-2`}
-              />
-              <ForSaleCard
-                imageSrc={SecondItem}
-                title="3BR House and Lot"
-                desc="Greenwoods Executive Village"
-                price="₱7,500,000"
-                slug={`lfs-3`}
-              />
-              <ForSaleCard
-                imageSrc={ThirdItem}
-                title="4BR House and Lot"
-                desc="Greenwoods Executive Village"
-                price="₱5,800,000"
-                slug={`lfs-4`}
-              />
-              <ForSaleCard
-                imageSrc={SixItem}
-                title="2BR House and Lot - PHASE 1"
-                desc="Greenwoods Executive Village (RENT)"
-                price="₱20,000.00"
-                slug={`lfs-5`}
-              />
-              <ForSaleCard
-                imageSrc={SeventhItem}
-                title="2BR House and Lot - PHASE 3A"
-                desc="Greenwoods Executive Village (RENT)"
-                price="₱15,000.00"
-                slug={`lfs-6`}
-              />
-              <ForSaleCard
-                imageSrc={EightItem}
-                title="4BR House and Lot - PHASE 4"
-                desc="Greenwoods Executive Village"
-                price="₱9,000,000"
-                slug={`lfs-7`}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <NowSelling />
       <ContactForm />
     </React.Fragment>
   );

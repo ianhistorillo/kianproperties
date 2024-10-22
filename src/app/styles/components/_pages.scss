@@ -145,45 +145,37 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 
     .search-buttons {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 50%;
-      margin-top: 4rem;
+      display: block;
+      width: auto;
       margin-bottom: 4rem;
-      margin-left: auto;
-      margin-right: auto;
 
       .search,
       .reset {
         background-color: #9a4c2f;
         color: #f9e5d3;
         border: 1px solid #9a4c2f;
-        padding: 1rem;
-        width: 200px;
+        padding: 0.5rem;
+        width: 110px;
         text-align: center;
       }
     }
   }
 
   &slider {
-    width: 70%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     @include mobile-lg {
-      width: 100%;
+      width: auto;
     }
 
     &text {
       top: 0;
       left: 0;
-      width: 100%;
+      width: auto;
       color: #9a4c2f;
       text-transform: capitalize;
       text-align: left;
@@ -193,11 +185,11 @@
       margin-right: auto;
 
       &.wd-70 {
-        width: 70%;
+        width: auto;
       }
     }
     &values {
-      width: 70%;
+      width: auto;
       margin-left: auto;
       margin-right: auto;
       text-transform: lowercase;
@@ -255,6 +247,152 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+  }
+}
+.hals- {
+  &options {
+    width: 100%;
+
+    &.i-posr {
+      position: relative;
+    }
+  }
+
+  &options {
+    display: inline-block;
+
+    &-title {
+      @include font-monsterrat;
+      width: 20%;
+      bottom: 10px;
+      text-transform: capitalize;
+      color: #9a4c2f;
+      font-size: 1rem;
+      font-weight: bold;
+      &.lfs-filter {
+        &-titledlots {
+          @include font-monsterrat;
+          text-transform: capitalize;
+          font-size: 1rem;
+          width: 19%;
+          vertical-align: middle;
+          margin-top: -10px;
+          font-weight: bold;
+
+          &.hal {
+            @include font-monsterrat;
+            text-transform: capitalize;
+            font-size: 1rem;
+          }
+
+          @include mobile-lg {
+            width: 16%;
+          }
+        }
+      }
+    }
+
+    &-mobpad {
+      padding-top: 20px;
+
+      @include mobile-lg {
+        padding-top: 12px;
+      }
+    }
+
+    &-pad {
+      padding-top: 26px;
+      &.selector {
+        @include mobile-lg {
+          padding-top: 28px;
+        }
+      }
+      @include tablet-sm {
+        padding-top: 12px;
+      }
+    }
+    &-m {
+      display: block;
+    }
+
+    &-option {
+      width: 15%;
+    }
+    &-option.selected {
+      & .hals-options-circle {
+        @include font-monsterrat;
+        background-color: #9a4c2f;
+        border: 3px solid #9a4c2f;
+        color: #f9e5d3;
+      }
+    }
+    &-circle {
+      @include font-monsterrat;
+      border: 3px solid #9a4c2f;
+      width: 32px;
+      height: 32px;
+      color: #f9e5d3;
+      border-radius: 32px;
+      text-align: center;
+      vertical-align: middle;
+      display: table-cell;
+      cursor: pointer;
+      background-color: #9a4c2f;
+      font-weight: normal;
+    }
+
+    &-select {
+      width: 80%;
+      &.lfs-filter {
+        width: 60%;
+        padding-left: 2rem;
+        padding-top: 0.7rem;
+
+        @include mobile-lg {
+          width: 50%;
+        }
+        &-titledlots {
+          width: 50%;
+          padding-top: 0.8rem;
+
+          &.hal {
+            padding-top: 28px;
+            padding-left: 4px;
+            @include mobile-lg {
+              padding-left: 1rem;
+            }
+          }
+          @include mobile-lg {
+            padding-top: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+  &select {
+    @include font-monsterrat;
+    background-color: $white;
+    padding: 10px !important;
+    border: 1px solid #9a4c2f !important;
+    border-radius: 0;
+    margin: 0;
+    color: #9a4c2f;
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &-chevron {
+      top: 4px;
+      right: 12px;
+      width: 16px;
+      height: 16px;
+
+      &-path {
+        fill: #9a4c2f;
+      }
+    }
   }
 }
 .for-sale- {
@@ -440,7 +578,7 @@
 
   &-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     h1 {
       font-size: 45px;
       color: #9a4c2f;

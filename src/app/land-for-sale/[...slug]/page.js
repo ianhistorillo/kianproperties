@@ -61,7 +61,7 @@ const Land = ({ params }) => {
         </div>
         <div className="i-col60 i-fl padd-right-2rem">
           <Image
-            src={FirstItem}
+            src={`http://localhost:3000/assets/${data[0].imgUrl}`}
             width={2000}
             height={2000}
             className="for-sale-detail-img"

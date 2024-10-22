@@ -49,6 +49,12 @@
       width: 100%;
     }
   }
+  &col33 {
+    width: 33.3333%;
+    @include mobile-lg {
+      width: 100%;
+    }
+  }
   &col30 {
     width: 30%;
     @include mobile-lg {
@@ -102,9 +108,22 @@
       }
     }
   }
+  &padd {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  &mar {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 .padd- {
+  &left {
+    &-2rem {
+      padding-left: 2rem;
+    }
+  }
   &right {
     &-2rem {
       padding-right: 2rem;
@@ -114,4 +133,9 @@
 
 .margin-bot {
   margin-bottom: 2rem;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
 }
