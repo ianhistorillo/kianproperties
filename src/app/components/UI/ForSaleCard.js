@@ -5,6 +5,7 @@ import Image from "next/image";
 import Bed from "../common/Bed";
 import Bath from "../common/Bath";
 import Car from "../common/Car";
+import FormatPrices from "../common/FormatPrices";
 
 const ForSaleCard = (props) => {
   return (
@@ -24,7 +25,15 @@ const ForSaleCard = (props) => {
           <span className="desc"> {props.desc} </span>
         </div>
         <div className="i-col50 pd-top-1 i-fl">
-          <span className="price"> {props.price} </span>
+          <span className="price">
+            {props.selling_type[0] === "for sale" ? (
+              <FormatPrices>{props.price}</FormatPrices>
+            ) : (
+              <span>
+                <FormatPrices>{props.monthly_rent}</FormatPrices> monthly
+              </span>
+            )}
+          </span>
         </div>
         <div className="i-col50 i-fr">
           <div className="forsale-card-detail-specs">

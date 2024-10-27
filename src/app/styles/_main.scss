@@ -372,3 +372,39 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: #c5c5c596; /* Black w/ opacity */
 }
+
+.carousel-root {
+  @include mobile-lg {
+    margin-top: 40px;
+  }
+  .carousel {
+    .control-dots {
+      display: none;
+      .dot {
+        width: 15px;
+        height: 15px;
+        background-color: grey;
+        opacity: 1;
+        &.selected {
+          background-color: $black;
+        }
+      }
+    }
+    .control-next.control-arrow {
+      &:before {
+        border-left: 20px solid white;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+      }
+      opacity: 1;
+    }
+    .control-prev.control-arrow {
+      &:before {
+        border-right: 20px solid white;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+      }
+      opacity: 1;
+    }
+  }
+}

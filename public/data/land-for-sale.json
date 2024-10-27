@@ -10,6 +10,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-1"
     },
     {
@@ -22,6 +23,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-2"
     },
     {
@@ -34,6 +36,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-3"
     },
     {
@@ -46,6 +49,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-4"
     },
     {
@@ -58,6 +62,7 @@
       "bath": 4,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-5"
     },
     {
@@ -70,6 +75,7 @@
       "bath": 4,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-6"
     },
     {
@@ -82,6 +88,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -94,6 +101,7 @@
       "bath": 2,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -106,6 +114,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -118,6 +127,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -130,6 +140,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -142,6 +153,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -154,6 +166,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -166,6 +179,7 @@
       "bath": 3,
       "car": 1,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -178,6 +192,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -190,6 +205,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-rent",
       "slug": "lfs-7"
     },
     {
@@ -202,6 +218,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -214,6 +231,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-rent",
       "slug": "lfs-7"
     },
     {
@@ -226,6 +244,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -238,6 +257,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     },
     {
@@ -250,6 +270,7 @@
       "bath": 0,
       "car": 0,
       "description": "",
+      "type": "for-sale",
       "slug": "lfs-7"
     }
   ],

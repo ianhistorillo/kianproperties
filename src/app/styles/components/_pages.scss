@@ -527,18 +527,19 @@
   &detail {
     max-width: 1280px;
     margin: auto;
-    padding-top: 10%;
+    padding-top: 5%;
     padding-bottom: 10%;
     &-img {
       width: 100% !important;
-      height: auto;
+      height: 650px;
+      object-fit: cover;
     }
     &-specs {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: center;
-      margin-top: 4rem;
+      margin-top: 2rem;
 
       svg,
       span {
@@ -562,6 +563,15 @@
     &-price {
       font-size: 20px;
       margin-top: 2rem;
+    }
+    &-area {
+      margin-top: 0.5rem;
+      font-size: 20px;
+    }
+    &-type {
+      margin-top: 0.5rem;
+      font-size: 20px;
+      text-transform: capitalize;
     }
     &-content {
       margin-top: 4rem;

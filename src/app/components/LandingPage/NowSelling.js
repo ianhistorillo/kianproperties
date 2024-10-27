@@ -9,7 +9,9 @@ const NowSelling = () => {
 
   async function getNowSellingData() {
     try {
-      const response = await fetch("/api/data"); // Fetch data from the API
+      const response = await fetch(
+        "http://localhost:8888/kianproperties/wp-json/wp/v2/posts/?acf_format=standard&per_page=100" // change this to live endpoint once deployed live
+      ); // Fetch data from the API
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -31,6 +33,7 @@ const NowSelling = () => {
 
     fetchData();
   }, []);
+
   if (data) {
     return (
       <div className="now-selling-page">
@@ -46,20 +49,21 @@ const NowSelling = () => {
           </div>
           <div className="i-col100 i-fl">
             <div className="now-selling-section-list">
-              {data.landforsale.map((item, idx) => {
-                console.log(item.slug);
+              {data.toReversed().map((item, idx) => {
                 return (
                   <ForSaleCard
                     key={idx}
-                    imageSrc={`http://localhost:3000/assets/${item.imgUrl}`}
-                    title={item.title}
-                    desc={item.subheader}
-                    price={item.price}
-                    bed={item.bed}
-                    bath={item.bath}
-                    car={item.car}
-                    area={item.area}
-                    slug={item.slug}
+                    imageSrc={item.acf.image_header}
+                    title={item.acf.title}
+                    desc={item.acf.subheader}
+                    selling_type={item.acf.selling_type}
+                    monthly_rent={item.acf.monthly_rent}
+                    price={item.acf.price}
+                    bed={item.acf.bed}
+                    bath={item.acf.bath}
+                    car={item.acf.car}
+                    area={item.acf.area}
+                    slug={item.id}
                   />
                 );
               })}
