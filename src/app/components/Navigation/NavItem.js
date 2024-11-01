@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 // import Home from "../Icons/Home";
 // import About from "../Icons/About";

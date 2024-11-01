@@ -33,7 +33,7 @@ import NowSelling from "./components/LandingPage/NowSelling";
 // import TwentyonethItem from "../../public/assets/CONDO-5.jpeg";
 // import TwentytwoItem from "../../public/assets/PENTHOUSE.jpeg";
 import ContactForm from "./components/Form/ContactForm";
-4;
+import CounterComponent from "./components/CounterComponent";
 
 export default function Home() {
   return (
@@ -46,6 +46,7 @@ export default function Home() {
             <HomeLogo />
             {/* <h1 className="landing-page-title"> NOW SELLING </h1> */}
             <span className="landing-page-sub"> PROPERTIES BY KIAN </span>
+            <CounterComponent />
             <div className="landing-page-welcome-text">
               <span> Your Gateway to Dream Homes and Smart Investments! </span>
               <p>
