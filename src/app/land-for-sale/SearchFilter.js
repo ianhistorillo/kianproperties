@@ -1,5 +1,10 @@
 "use client";
 import { useState, useEffect, React } from "react";
+
+//react-redux
+import { connect } from "react-redux";
+
+//other libraries or components
 import FormatPrice from "../components/common/FormatPrice";
 import MultiSlider from "multi-slider";
 
@@ -257,4 +262,16 @@ const DisplaySelectDropdown = (props) => {
   );
 };
 
-export default SearchFilter;
+// Map Redux state to component props
+const mapStateToProps = (state) => ({
+  landreducer: state.counter.value,
+});
+
+// Map dispatch to props
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: "INCREMENT" }),
+  decrement: () => dispatch({ type: "DECREMENT" }),
+});
+
+// Connect the component to the Redux store
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFilter);
