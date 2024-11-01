@@ -9,29 +9,6 @@ import HomeLogo from "./components/common/HomeLogo";
 import SearchFilter from "./land-for-sale/SearchFilter";
 import SellingContent from "./components/LandingPage/SellingContent";
 import NowSelling from "./components/LandingPage/NowSelling";
-
-// house images
-// import FirstItem from "../../public/assets/2br.jpeg";
-// import SecondItem from "../../public/assets/3br.jpeg";
-// import ThirdItem from "../../public/assets/4BR-HOUSE-AND-LAND.jpeg";
-// import FifthItem from "../../public/assets/5br.jpeg";
-// import SixItem from "../../public/assets/5BR-HOUSE-AND-LAND-EAGLE-RIDGE.jpeg";
-// import SeventhItem from "../../public/assets/4BR-HOUSE-AND-LAND-2.jpeg";
-// import EightItem from "../../public/assets/5BR-HOUSE-AND-LAND.jpeg";
-// import NinthItem from "../../public/assets/4br-phase1.jpeg";
-// import TenthItem from "../../public/assets/LOT-1.jpeg";
-// import EleventhItem from "../../public/assets/LOT-2.jpeg";
-// import TwelveItem from "../../public/assets/LOT-3.jpeg";
-// import ThirtheenItem from "../../public/assets/LOT-4.jpeg";
-// import FourteenItem from "../../public/assets/LOT-5.jpeg";
-// import FifteenthItem from "../../public/assets/HOUSE-AND-LOT.jpeg";
-// import SixteenthItem from "../../public/assets/LOT-6.jpeg";
-// import SeventeenthItem from "../../public/assets/CONDO.jpeg";
-// import EighteenthItem from "../../public/assets/CONDO-2.jpeg";
-// import NineteenthItem from "../../public/assets/CONDO-3.jpeg";
-// import TwenteenthItem from "../../public/assets/CONDO-4.jpeg";
-// import TwentyonethItem from "../../public/assets/CONDO-5.jpeg";
-// import TwentytwoItem from "../../public/assets/PENTHOUSE.jpeg";
 import ContactForm from "./components/Form/ContactForm";
 import CounterComponent from "./components/CounterComponent";
 

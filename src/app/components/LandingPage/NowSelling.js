@@ -1,40 +1,26 @@
 "use client";
 import { react, useState, useEffect } from "react";
+
+//react-redux
+import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+
+// fetch thunk
+import { fetchSellingData } from "@/app/redux/actions/thunks/loadDataThunk";
+
 import Image from "next/image";
 import SearchFilter from "@/app/land-for-sale/SearchFilter";
 import ForSaleCard from "../UI/ForSaleCard";
 
-const NowSelling = () => {
+const NowSelling = (props) => {
   const [data, setData] = useState(null);
+  const dispatch = useDispatch();
 
-  async function getNowSellingData() {
-    try {
-      const response = await fetch(
-        "http://localhost:8888/kianproperties/wp-json/wp/v2/posts/?acf_format=standard&per_page=100" // change this to live endpoint once deployed live
-      ); // Fetch data from the API
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json(); // Make sure the response is JSON
-
-      return data;
-    } catch (error) {
-      console.error("Error fetching search criteria:", error);
-      return null;
-    }
-  }
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await getNowSellingData();
-      // Now you can safely use filter
+    dispatch(fetchSellingData());
+  }, [dispatch]);
 
-      setData(result);
-    };
-
-    fetchData();
-  }, []);
-
-  if (data) {
+  if (props.nowselling) {
     return (
       <div className="now-selling-page">
         <div className="i-col100 now-selling-title">
@@ -49,7 +35,7 @@ const NowSelling = () => {
           </div>
           <div className="i-col100 i-fl">
             <div className="now-selling-section-list">
-              {data.toReversed().map((item, idx) => {
+              {props.nowselling.toReversed().map((item, idx) => {
                 return (
                   <ForSaleCard
                     key={idx}
@@ -77,4 +63,16 @@ const NowSelling = () => {
   }
 };
 
-export default NowSelling;
+// Map Redux state to component props
+const mapStateToProps = (state) => ({
+  nowselling: state.nowselling.items,
+});
+
+// Map dispatch to props
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: "INCREMENT" }),
+  decrement: () => dispatch({ type: "DECREMENT" }),
+});
+
+// Connect the component to the Redux store
+export default connect(mapStateToProps, mapDispatchToProps)(NowSelling);
