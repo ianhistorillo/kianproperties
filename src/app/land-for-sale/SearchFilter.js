@@ -9,34 +9,6 @@ import FormatPrice from "../components/common/FormatPrice";
 import MultiSlider from "multi-slider";
 
 const SearchFilter = (props) => {
-  const [data, setData] = useState(null);
-
-  async function getSearchCriteria() {
-    try {
-      const response = await fetch("/api/search-criteria"); // Fetch data from the API
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json(); // Make sure the response is JSON
-      return data;
-    } catch (error) {
-      console.error("Error fetching search criteria:", error);
-      return null;
-    }
-  }
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getSearchCriteria();
-      setData(result);
-    };
-
-    fetchData();
-  }, []);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
   const onBedButtonClick = () => {
     console.log("test");
   };
@@ -58,50 +30,50 @@ const SearchFilter = (props) => {
       <div className="lfss-searchfilter">
         <div className="i-col33 i-fl i-padd">
           <DisplaySlider
-            slider={data.sliders.price}
-            values={data.search.price}
+            slider={props.sliders.price}
+            values={props.search[0].price}
             type="price"
             onSliderChange={props.onPriceSliderChange}
           >
             PRICE
           </DisplaySlider>
           <DisplaySlider
-            slider={data.sliders.area}
-            values={data.search.area}
+            slider={props.sliders.houseArea}
+            values={props.search[0].area}
             type="sqrmeters"
             onSliderChange={props.onAreaSliderChange}
           >
-            AREA
+            HOUSE AREA
           </DisplaySlider>
           <DisplaySlider
-            slider={data.sliders.frontage}
-            values={data.search.frontage}
+            slider={props.sliders.floorArea}
+            values={props.search[0].area}
             type="sqrmeters"
             onSliderChange={props.onFrontageSliderChange}
           >
-            FRONTAGE
+            FLOOR AREA
           </DisplaySlider>
         </div>
         <div className="i-col33 i-fl i-padd align-center">
           <DisplayButtonOptions
-            options={data.search.bed.options}
-            selected={data.search.bed.selected}
+            options={props.search[0].bed.options}
+            selected={props.search[0].bed.selected}
             onButtonClick={onBedButtonClick}
             addclass="hals-options-padd"
           >
             Beds
           </DisplayButtonOptions>
           <DisplayButtonOptions
-            options={data.search.bath.options}
-            selected={data.search.bath.selected}
+            options={props.search[0].bath.options}
+            selected={props.search[0].bath.selected}
             onButtonClick={onBathButtonClick}
             addclass="hals-options-pad"
           >
             Baths
           </DisplayButtonOptions>
           <DisplayButtonOptions
-            options={data.search.car.options}
-            selected={data.search.car.selected}
+            options={props.search[0].car.options}
+            selected={props.search[0].car.selected}
             onButtonClick={onCarButtonClick}
             addclass="hals-options-pad"
           >
@@ -110,9 +82,9 @@ const SearchFilter = (props) => {
         </div>
         <div className="i-col33 i-fl i-padd">
           <DisplaySelectDropdown
-            options={data.search.type.options}
-            defaultValue={data.search.type.selected}
-            selected={data.search.type.selected}
+            options={props.search[0].type.options}
+            defaultValue={props.search[0].type.selected}
+            selected={props.search[0].type.selected}
             onSelectChange={onLocationSelectChange}
             addclass="selector"
           >
@@ -120,9 +92,9 @@ const SearchFilter = (props) => {
             Type{" "}
           </DisplaySelectDropdown>
           <DisplaySelectDropdown
-            options={data.search.location.options}
-            defaultValue={data.search.location.selected}
-            selected={data.search.location.selected}
+            options={props.search[0].location.options}
+            defaultValue={props.search[0].location.selected}
+            selected={props.search[0].location.selected}
             onSelectChange={onLocationSelectChange}
             addclass="hals-options-pad selector"
           >
@@ -263,9 +235,13 @@ const DisplaySelectDropdown = (props) => {
 };
 
 // Map Redux state to component props
-const mapStateToProps = (state) => ({
-  landreducer: state.counter.value,
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    search: Object.values(state.nowselling.search) || [],
+    sliders: state.nowselling.sliders || [],
+  };
+};
 
 // Map dispatch to props
 const mapDispatchToProps = (dispatch) => ({

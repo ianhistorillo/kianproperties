@@ -14,7 +14,7 @@ import CounterComponent from "./components/CounterComponent";
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <div>
       <Navigation />
       <div className="main enableBlur">
         <div className="i-container i-col100 landing-page fade-in-image disableBlur">
@@ -23,7 +23,6 @@ export default function Home() {
             <HomeLogo />
             {/* <h1 className="landing-page-title"> NOW SELLING </h1> */}
             <span className="landing-page-sub"> PROPERTIES BY KIAN </span>
-            <CounterComponent />
             <div className="landing-page-welcome-text">
               <span> Your Gateway to Dream Homes and Smart Investments! </span>
               <p>
@@ -43,6 +42,6 @@ export default function Home() {
       <SellingContent />
       <NowSelling />
       <ContactForm />
-    </React.Fragment>
+    </div>
   );
 }
