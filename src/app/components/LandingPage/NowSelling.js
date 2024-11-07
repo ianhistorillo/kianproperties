@@ -1,26 +1,17 @@
 "use client";
-import { react, useState, useEffect } from "react";
 
 //react-redux
 import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
-
-// fetch thunk
-import { fetchSellingData } from "@/app/redux/actions/thunks/loadDataThunk";
 
 import Image from "next/image";
 import SearchFilter from "@/app/land-for-sale/SearchFilter";
 import ForSaleCard from "../UI/ForSaleCard";
 
 const NowSelling = (props) => {
-  const [data, setData] = useState(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchSellingData());
-  }, [dispatch]);
-
-  if (props.nowselling) {
+  const itemKeys = Object.values(props.nowselling);
+  if (itemKeys.length === 0) {
+    return <p>Loading...</p>;
+  } else {
     return (
       <div className="now-selling-page">
         <div className="i-col100 now-selling-title">
@@ -35,20 +26,20 @@ const NowSelling = (props) => {
           </div>
           <div className="i-col100 i-fl">
             <div className="now-selling-section-list">
-              {props.nowselling.toReversed().map((item, idx) => {
+              {itemKeys.toReversed().map((item, idx) => {
                 return (
                   <ForSaleCard
                     key={idx}
-                    imageSrc={item.acf.image_header}
-                    title={item.acf.title}
-                    desc={item.acf.subheader}
-                    selling_type={item.acf.selling_type}
-                    monthly_rent={item.acf.monthly_rent}
-                    price={item.acf.price}
-                    bed={item.acf.bed}
-                    bath={item.acf.bath}
-                    car={item.acf.car}
-                    area={item.acf.area}
+                    imageSrc={item.image_header}
+                    title={item.title}
+                    desc={item.subheader}
+                    selling_type={item.selling_type}
+                    monthly_rent={item.monthly_rent}
+                    price={item.price}
+                    bed={item.bed}
+                    bath={item.bath}
+                    car={item.car}
+                    area={item.area}
                     slug={item.id}
                   />
                 );
@@ -58,15 +49,15 @@ const NowSelling = (props) => {
         </div>
       </div>
     );
-  } else {
-    return null;
   }
 };
 
 // Map Redux state to component props
-const mapStateToProps = (state) => ({
-  nowselling: state.nowselling.items,
-});
+const mapStateToProps = (state) => {
+  return {
+    nowselling: state.nowselling.list || [],
+  };
+};
 
 // Map dispatch to props
 const mapDispatchToProps = (dispatch) => ({
