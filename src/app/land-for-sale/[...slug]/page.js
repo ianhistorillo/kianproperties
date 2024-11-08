@@ -70,7 +70,6 @@ const Land = ({ params }) => {
   };
 
   if (data) {
-    console.log(data[0]);
     return (
       <div className="for-sale-detail">
         <div className="i-col100 i-fl margin-bot">

@@ -1,63 +1,39 @@
 {
-  "search": {
-    "frontage": {
-      "original": { "low": 16, "high": 18 },
-      "current": { "low": 16, "high": 18 },
-      "step": 1
-    },
-    "area": {
-      "original": { "low": 450, "high": 600 },
-      "current": { "low": 450, "high": 600 },
-      "step": 50
-    },
-    "price": {
-      "original": { "low": 500000, "high": 750000 },
-      "current": { "low": 500000, "high": 750000 },
-      "step": 10000
-    },
-    "bed": { "options": ["0", "2", "3", "4"], "selected": "0" },
-    "bath": { "options": ["0", "2", "2.5", "3"], "selected": "0" },
-    "car": { "options": ["0", "1", "2"], "selected": "0" },
-    "location": {
-      "options": [
-        "Any",
-        "Dasmarinas Cavite",
-        "General Trias Cavite",
-        "Silang Cavite"
-      ],
-      "selected": "Any"
-    },
-    "type": {
-      "options": [
-        "Any",
-        "Land for sale",
-        "House and Lot",
-        "Condominium",
-        "Townhomes"
-      ],
-      "selected": "Any"
-    }
+  "houseArea": {
+    "original": { "low": 450, "high": 600 },
+    "current": { "low": 450, "high": 600 },
+    "step": 50
   },
-  "sliders": {
-    "area": {
-      "start": 0,
-      "middle": 100,
-      "end": 0
-    },
-    "depth": {
-      "start": 0,
-      "middle": 100,
-      "end": 0
-    },
-    "frontage": {
-      "start": 0,
-      "middle": 100,
-      "end": 0
-    },
-    "price": {
-      "start": 0,
-      "middle": 100,
-      "end": 0
-    }
+  "floorArea": {
+    "original": { "low": 46, "high": 100 },
+    "current": { "low": 46, "high": 100 },
+    "step": 1
+  },
+  "price": {
+    "original": { "low": 500000, "high": 750000 },
+    "current": { "low": 500000, "high": 750000 },
+    "step": 10000
+  },
+  "bed": { "options": ["0", "2", "3", "4"], "selected": "0" },
+  "bath": { "options": ["0", "2", "2.5", "3"], "selected": "0" },
+  "car": { "options": ["0", "1", "2"], "selected": "0" },
+  "location": {
+    "options": [
+      "Any",
+      "Dasmarinas Cavite",
+      "General Trias Cavite",
+      "Silang Cavite"
+    ],
+    "selected": "Any"
+  },
+  "type": {
+    "options": [
+      "Any",
+      "Land for sale",
+      "House and Lot",
+      "Condominium",
+      "Townhomes"
+    ],
+    "selected": "Any"
   }
 }
