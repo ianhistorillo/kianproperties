@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, React } from "react";
+import { useState, useEffect, React, act } from "react";
 
 //react-redux
 import { connect } from "react-redux";
@@ -7,6 +7,11 @@ import { connect } from "react-redux";
 //other libraries or components
 import FormatPrice from "../components/common/FormatPrice";
 import MultiSlider from "multi-slider";
+
+// action constants
+import sliderChangeHouseArea from "../redux/actions/landActions/sliderChangeHouseArea";
+import sliderChangeLotArea from "../redux/actions/landActions/sliderChangeLotArea";
+import sliderChangePrice from "../redux/actions/landActions/sliderChangePrice";
 
 const SearchFilter = (props) => {
   const onBedButtonClick = () => {
@@ -31,7 +36,7 @@ const SearchFilter = (props) => {
         <div className="i-col33 i-fl i-padd">
           <DisplaySlider
             slider={props.sliders.price}
-            values={props.search[0].price}
+            values={props.search.price}
             type="price"
             onSliderChange={props.onPriceSliderChange}
           >
@@ -39,41 +44,41 @@ const SearchFilter = (props) => {
           </DisplaySlider>
           <DisplaySlider
             slider={props.sliders.houseArea}
-            values={props.search[0].area}
+            values={props.search.houseArea}
             type="sqrmeters"
-            onSliderChange={props.onAreaSliderChange}
+            onSliderChange={props.onHouseAreaSliderChange}
           >
             HOUSE AREA
           </DisplaySlider>
           <DisplaySlider
             slider={props.sliders.floorArea}
-            values={props.search[0].area}
+            values={props.search.floorArea}
             type="sqrmeters"
-            onSliderChange={props.onFrontageSliderChange}
+            onSliderChange={props.onFloorAreaSliderChange}
           >
             FLOOR AREA
           </DisplaySlider>
         </div>
         <div className="i-col33 i-fl i-padd align-center">
           <DisplayButtonOptions
-            options={props.search[0].bed.options}
-            selected={props.search[0].bed.selected}
+            options={props.search.bed.options}
+            selected={props.search.bed.selected}
             onButtonClick={onBedButtonClick}
             addclass="hals-options-padd"
           >
             Beds
           </DisplayButtonOptions>
           <DisplayButtonOptions
-            options={props.search[0].bath.options}
-            selected={props.search[0].bath.selected}
+            options={props.search.bath.options}
+            selected={props.search.bath.selected}
             onButtonClick={onBathButtonClick}
             addclass="hals-options-pad"
           >
             Baths
           </DisplayButtonOptions>
           <DisplayButtonOptions
-            options={props.search[0].car.options}
-            selected={props.search[0].car.selected}
+            options={props.search.car.options}
+            selected={props.search.car.selected}
             onButtonClick={onCarButtonClick}
             addclass="hals-options-pad"
           >
@@ -82,9 +87,9 @@ const SearchFilter = (props) => {
         </div>
         <div className="i-col33 i-fl i-padd">
           <DisplaySelectDropdown
-            options={props.search[0].type.options}
-            defaultValue={props.search[0].type.selected}
-            selected={props.search[0].type.selected}
+            options={props.search.type.options}
+            defaultValue={props.search.type.selected}
+            selected={props.search.type.selected}
             onSelectChange={onLocationSelectChange}
             addclass="selector"
           >
@@ -92,9 +97,9 @@ const SearchFilter = (props) => {
             Type{" "}
           </DisplaySelectDropdown>
           <DisplaySelectDropdown
-            options={props.search[0].location.options}
-            defaultValue={props.search[0].location.selected}
-            selected={props.search[0].location.selected}
+            options={props.search.location.options}
+            defaultValue={props.search.location.selected}
+            selected={props.search.location.selected}
             onSelectChange={onLocationSelectChange}
             addclass="hals-options-pad selector"
           >
@@ -236,17 +241,23 @@ const DisplaySelectDropdown = (props) => {
 
 // Map Redux state to component props
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    search: Object.values(state.nowselling.search) || [],
-    sliders: state.nowselling.sliders || [],
+    search: state.nowselling.search,
+    sliders: state.nowselling.sliders,
   };
 };
 
 // Map dispatch to props
 const mapDispatchToProps = (dispatch) => ({
-  increment: () => dispatch({ type: "INCREMENT" }),
-  decrement: () => dispatch({ type: "DECREMENT" }),
+  onPriceSliderChange: (key) => {
+    dispatch(sliderChangePrice(key));
+  },
+  onHouseAreaSliderChange: (key) => {
+    dispatch(sliderChangeHouseArea(key));
+  },
+  onFloorAreaSliderChange: (key) => {
+    dispatch(sliderChangeLotArea(key));
+  },
 });
 
 // Connect the component to the Redux store

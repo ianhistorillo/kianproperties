@@ -92,6 +92,113 @@ const landReducer = (state = landReducerInitialState, action) => {
       break;
     case "FETCH_DATA_FAILURE":
       return { ...state, loading: false, error: action.payload };
+
+    case lfsconstants.SLIDER_CHANGE_PRICE:
+      // Do our calculations to work out our new positions
+      newPos = calcNewSliderValues(action.payload, state.search.price);
+
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of search
+        price: {
+          ...state.search.price, // Shallow copy of price
+          current: {
+            low: newPos.search.low,
+            high: newPos.search.high,
+          },
+        },
+      };
+
+      // Create a new object for the slider element, ensuring no mutation
+      sliderchg = {
+        ...state.sliders, // Shallow copy of sliders
+        price: {
+          start: newPos.slider.start,
+          middle: newPos.slider.middle,
+          end: newPos.slider.end,
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+        sliders: sliderchg,
+      };
+
+      break;
+
+    // Handle other cases similarly...
+
+    case lfsconstants.SLIDER_CHANGE_HOUSE_AREA:
+      // do our calculations to work out our new positions
+      newPos = calcNewSliderValues(action.payload, state.search.houseArea);
+      // create a new object for the search element
+
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of search
+        houseArea: {
+          ...state.search.houseArea, // Shallow copy of houseArea
+          current: {
+            low: newPos.search.low,
+            high: newPos.search.high,
+          },
+        },
+      };
+
+      // Create a new object for the slider element, ensuring no mutation
+      sliderchg = {
+        ...state.sliders, // Shallow copy of sliders
+        houseArea: {
+          start: newPos.slider.start,
+          middle: newPos.slider.middle,
+          end: newPos.slider.end,
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+        sliders: sliderchg,
+      };
+
+      break;
+    case lfsconstants.SLIDER_CHANGE_LOT_AREA:
+      // do our calculations to work out our new positions
+      newPos = calcNewSliderValues(action.payload, state.search.floorArea);
+      // create a new object for the search element
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of search
+        floorArea: {
+          ...state.search.floorArea, // Shallow copy of price
+          current: {
+            low: newPos.search.low,
+            high: newPos.search.high,
+          },
+        },
+      };
+
+      // Create a new object for the slider element, ensuring no mutation
+      sliderchg = {
+        ...state.sliders, // Shallow copy of sliders
+        floorArea: {
+          start: newPos.slider.start,
+          middle: newPos.slider.middle,
+          end: newPos.slider.end,
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+        sliders: sliderchg,
+      };
+
+      break;
     default:
       newState = state;
       break;
