@@ -8,10 +8,10 @@ import SearchFilter from "@/app/land-for-sale/SearchFilter";
 import ForSaleCard from "../UI/ForSaleCard";
 
 const NowSelling = (props) => {
-  const itemKeys = Object.values(props.nowselling);
-  if (itemKeys.length === 0) {
-    return <p>Loading...</p>;
-  } else {
+  let itemKeys = Object.values(props.nowselling);
+  let itemSelling = Object.values(props.filteredlist);
+
+  if (itemKeys.length > 0) {
     return (
       <div className="now-selling-page">
         <div className="i-col100 now-selling-title">
@@ -26,29 +26,49 @@ const NowSelling = (props) => {
           </div>
           <div className="i-col100 i-fl">
             <div className="now-selling-section-list">
-              {itemKeys.toReversed().map((item, idx) => {
-                return (
-                  <ForSaleCard
-                    key={idx}
-                    imageSrc={item.image_header}
-                    title={item.title}
-                    desc={item.subheader}
-                    selling_type={item.selling_type}
-                    monthly_rent={item.monthly_rent}
-                    price={item.price}
-                    bed={item.bed}
-                    bath={item.bath}
-                    car={item.car}
-                    area={item.area}
-                    slug={item.id}
-                  />
-                );
-              })}
+              {itemSelling.length > 0 ? (
+                <DisplaySellingSection itemSelling={itemSelling} />
+              ) : (
+                <h1>
+                  No Selling Item Found. Please expand your search criteria{" "}
+                </h1>
+              )}
             </div>
           </div>
         </div>
       </div>
     );
+  } else {
+    return (
+      <div className="now-selling-page">
+        <h3> No selling items displayed at the moment.</h3>
+      </div>
+    );
+  }
+};
+
+const DisplaySellingSection = (props) => {
+  if (props.itemSelling) {
+    return props.itemSelling.toReversed().map((item, idx) => {
+      return (
+        <ForSaleCard
+          key={idx}
+          imageSrc={item.image_header}
+          title={item.title}
+          desc={item.subheader}
+          selling_type={item.selling_type}
+          monthly_rent={item.monthly_rent}
+          price={item.price}
+          bed={item.bed}
+          bath={item.bath}
+          car={item.car}
+          area={item.area}
+          slug={item.id}
+        />
+      );
+    });
+  } else {
+    return null;
   }
 };
 
@@ -56,6 +76,7 @@ const NowSelling = (props) => {
 const mapStateToProps = (state) => {
   return {
     nowselling: state.nowselling.list || [],
+    filteredlist: state.nowselling.filteredlist || [],
   };
 };
 

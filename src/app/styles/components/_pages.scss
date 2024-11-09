@@ -154,12 +154,17 @@
 
       .search,
       .reset {
+        display: inline-block;
         background-color: #9a4c2f;
         color: #f9e5d3;
         border: 1px solid #9a4c2f;
         padding: 0.5rem;
-        width: 110px;
+        width: 150px;
         text-align: center;
+      }
+
+      .search {
+        margin-right: 1rem;
       }
     }
   }
@@ -321,9 +326,9 @@
     &-option.selected {
       & .hals-options-circle {
         @include font-monsterrat;
-        background-color: #9a4c2f;
-        border: 3px solid #9a4c2f;
-        color: #f9e5d3;
+        background-color: orange;
+        border: 3px solid orange;
+        color: #9a4c2f;
       }
     }
     &-circle {
