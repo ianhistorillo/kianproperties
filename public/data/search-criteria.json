@@ -10,9 +10,9 @@
     "step": 1
   },
   "price": {
-    "original": { "low": 500000, "high": 750000 },
-    "current": { "low": 500000, "high": 750000 },
-    "step": 10000
+    "original": { "low": 1250000, "high": 120000000 },
+    "current": { "low": 1250000, "high": 120000000 },
+    "step": 1000000
   },
   "bed": { "options": ["0", "2", "3", "4"], "selected": "0" },
   "bath": { "options": ["0", "2", "2.5", "3"], "selected": "0" },

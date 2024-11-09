@@ -75,12 +75,82 @@ function sliderValueFormula(a, x, z) {
   return Math.round((a * x) / z) * z;
 }
 
+function searchList(list, search) {
+  let flist = list;
+
+  // filter the array to apply price restrictions.
+  flist = Object.values(flist).filter((pck) => {
+    if (
+      parseInt(pck.price) >= search.price.current.low &&
+      parseInt(pck.price) <= search.price.current.high
+    )
+      return pck;
+  });
+
+  // filter the array to apply frontage restrictions.
+  // flist = Object.values(flist).filter((pck) => {
+  //   if (
+  //     pck.floorArea >= search.floorArea.current.low &&
+  //     pck.floorArea <= search.floorArea.current.high
+  //   )
+  //     return pck;
+  // });
+
+  // filter the array to apply area restrictions.
+  // flist = Object.values(flist).filter((pck) => {
+  //   if (
+  //     pck.houseArea >= search.houseArea.current.low &&
+  //     pck.houseArea <= search.houseArea.current.high
+  //   )
+  //     return pck;
+  // });
+
+  // filter the array to apply bed restrictions.
+  if (search.bed.selected !== "0") {
+    flist = Object.values(flist).filter((pck) => {
+      console.log(search.bed.selected);
+      if (parseInt(pck.bed) === parseInt(search.bed.selected)) return pck;
+    });
+  }
+
+  // filter the array to apply bath restrictions.
+  if (search.bath.selected !== "0") {
+    flist = Object.values(flist).filter((pck) => {
+      if (parseInt(pck.bath) === parseInt(search.bath.selected)) return pck;
+    });
+  }
+
+  // filter the array to apply car restrictions.
+  flist = Object.values(flist).filter((pck) => {
+    if (parseInt(pck.car, 10) >= parseInt(search.car.selected, 10)) return pck;
+  });
+
+  // filter the array to apply lot restrictions.
+  // if(search.stages.selected !== "") {
+  // 	flist = flist.filter((pck) => {
+  // 		if(pck.stage_slug === search.stages.selected)
+  // 			return pck;
+  // 	});
+  // }
+
+  // filter the array to apply lot restrictions.
+  // if(search.precincts.selected !== "") {
+  // 	flist = flist.filter((pck) => {
+  // 		if(pck.precinct_slug === search.precincts.selected)
+  // 			return pck;
+  // 	});
+  // }
+
+  // return list of filtered lots
+  return flist;
+}
+
 const landReducer = (state = landReducerInitialState, action) => {
   let newState = null;
   let sliderchg = null;
   let searchchg = null;
   let newPos = null;
-  let displayPackages = null;
+  let displayList = null;
 
   switch (action.type) {
     case lfsconstants.NOW_SELLING_PAYLOAD:
@@ -199,6 +269,123 @@ const landReducer = (state = landReducerInitialState, action) => {
       };
 
       break;
+
+    case lfsconstants.BED_SELECT_CHANGE:
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of price
+        bed: {
+          ...state.search.bed,
+          selected: action.payload, // Shallow copy of price
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+      };
+
+      break;
+
+    case lfsconstants.BATH_SELECT_CHANGE:
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of price
+        bath: {
+          ...state.search.bath,
+          selected: action.payload, // Shallow copy of price
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+      };
+
+      break;
+
+    case lfsconstants.CAR_SELECT_CHANGE:
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search, // Shallow copy of price
+        car: {
+          ...state.search.car,
+          selected: action.payload, // Shallow copy of price
+        },
+      };
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+      };
+
+      break;
+
+    case lfsconstants.SEARCH_CLICK:
+      // Create a new object for the search element, ensuring no mutation
+
+      displayList = searchList(state.list, state.search);
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        filteredlist: displayList,
+        displaysearchresults: true,
+      };
+
+      break;
+
+    case lfsconstants.RESET_CLICK:
+      // Create a new object for the search element, ensuring no mutation
+      searchchg = {
+        ...state.search,
+        price: {
+          ...state.search.price,
+          selected: state.search.price.original,
+        },
+        houseArea: {
+          ...state.search.houseArea,
+          selected: state.search.houseArea.original,
+        },
+        floorArea: {
+          ...state.search.floorArea,
+          selected: state.search.floorArea.original,
+        },
+        bed: {
+          ...state.search.bed,
+          selected: state.search.bed.options[0],
+        },
+        bath: {
+          ...state.search.bath,
+          selected: state.search.bath.options[0],
+        },
+        car: {
+          ...state.search.car,
+          selected: state.search.car.options[0],
+        },
+      };
+
+      sliderchg = {
+        floorArea: { start: 0, middle: 100, end: 0 },
+        houseArea: { start: 0, middle: 100, end: 0 },
+        price: { start: 0, middle: 100, end: 0 },
+      };
+
+      displayList = state.list;
+
+      // Return the new state without mutating the original state
+      newState = {
+        ...state,
+        search: searchchg,
+        sliders: sliderchg,
+        filteredlist: displayList,
+      };
+
+      break;
+
     default:
       newState = state;
       break;

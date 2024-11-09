@@ -12,24 +12,13 @@ import MultiSlider from "multi-slider";
 import sliderChangeHouseArea from "../redux/actions/landActions/sliderChangeHouseArea";
 import sliderChangeLotArea from "../redux/actions/landActions/sliderChangeLotArea";
 import sliderChangePrice from "../redux/actions/landActions/sliderChangePrice";
+import bedSelectChange from "../redux/actions/landActions/bedSelectChange";
+import bathSelectChange from "../redux/actions/landActions/bathSelectChange";
+import carSelectChange from "../redux/actions/landActions/carSelectChange";
+import searchClick from "../redux/actions/landActions/searchClick";
+import resetClick from "../redux/actions/landActions/resetClick";
 
 const SearchFilter = (props) => {
-  const onBedButtonClick = () => {
-    console.log("test");
-  };
-
-  const onBathButtonClick = () => {
-    console.log("test");
-  };
-
-  const onCarButtonClick = () => {
-    console.log("test");
-  };
-
-  const onLocationSelectChange = () => {
-    console.log("test");
-  };
-
   return (
     <div className="i-col100 i-fl">
       <div className="lfss-searchfilter">
@@ -63,7 +52,7 @@ const SearchFilter = (props) => {
           <DisplayButtonOptions
             options={props.search.bed.options}
             selected={props.search.bed.selected}
-            onButtonClick={onBedButtonClick}
+            onButtonClick={props.onBedButtonClick}
             addclass="hals-options-padd"
           >
             Beds
@@ -71,7 +60,7 @@ const SearchFilter = (props) => {
           <DisplayButtonOptions
             options={props.search.bath.options}
             selected={props.search.bath.selected}
-            onButtonClick={onBathButtonClick}
+            onButtonClick={props.onBathButtonClick}
             addclass="hals-options-pad"
           >
             Baths
@@ -79,7 +68,7 @@ const SearchFilter = (props) => {
           <DisplayButtonOptions
             options={props.search.car.options}
             selected={props.search.car.selected}
-            onButtonClick={onCarButtonClick}
+            onButtonClick={props.onCarButtonClick}
             addclass="hals-options-pad"
           >
             Cars
@@ -90,7 +79,7 @@ const SearchFilter = (props) => {
             options={props.search.type.options}
             defaultValue={props.search.type.selected}
             selected={props.search.type.selected}
-            onSelectChange={onLocationSelectChange}
+            onSelectChange={props.onTypeSelectChange}
             addclass="selector"
           >
             {" "}
@@ -100,16 +89,28 @@ const SearchFilter = (props) => {
             options={props.search.location.options}
             defaultValue={props.search.location.selected}
             selected={props.search.location.selected}
-            onSelectChange={onLocationSelectChange}
+            onSelectChange={props.onLocationSelectChange}
             addclass="hals-options-pad selector"
           >
             {" "}
             Location{" "}
           </DisplaySelectDropdown>
           <div className="i-col100 search-buttons hals-options-pad i-fl">
-            <div className="search"> SEARCH </div>
+            <a
+              href="#search"
+              className="search"
+              onClick={(e) => props.onClickSearch(e)}
+            >
+              <span>SEARCH</span>
+            </a>
+            <a
+              href="#reset"
+              className="reset"
+              onClick={(e) => props.onClickReset(e)}
+            >
+              <span>RESET</span>
+            </a>
           </div>
-          <div className="search-buttons"></div>
         </div>
         <div className="i-col100 i-fl"></div>
       </div>
@@ -257,6 +258,23 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onFloorAreaSliderChange: (key) => {
     dispatch(sliderChangeLotArea(key));
+  },
+  onBedButtonClick: (key) => {
+    dispatch(bedSelectChange(key));
+  },
+  onBathButtonClick: (key) => {
+    dispatch(bathSelectChange(key));
+  },
+  onCarButtonClick: (key) => {
+    dispatch(carSelectChange(key));
+  },
+  onClickSearch: (e) => {
+    e.preventDefault();
+    dispatch(searchClick());
+  },
+  onClickReset: (e) => {
+    e.preventDefault();
+    dispatch(resetClick());
   },
 });
 
