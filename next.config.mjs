@@ -3,8 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
+        protocol: "https",
+        hostname: "azure-lobster-898138.hostingersite.com",
         // port: "3000",
         // pathname: "/assets/*",
       },

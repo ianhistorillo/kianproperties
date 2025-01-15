@@ -16,6 +16,30 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <Provider store={store}>
+      <html lang="en">
+        <head>
+          <title> Kian Properties </title>
+          <meta
+            name="description"
+            content="Your Gateway to Dream Homes and Smart Investments! Whether you're looking to buy, sell, or invest, we offer a seamless experience tailored just for you."
+          />
+          <meta property="og:title" content="Kian Properties" />
+          <meta
+            property="og:description"
+            content="Your Gateway to Dream Homes and Smart Investments! Whether you're looking to buy, sell, or invest, we offer a seamless experience tailored just for you."
+          />
+          <meta
+            property="og:image"
+            content={`https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/footer-bg-scaled.jpeg`}
+          />
+          <link
+            rel="icon"
+            href="https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/laugh-room-1.png"
+            type="image/svg+xml"
+          />
+        </head>
+        <body>{children}</body>
+      </html>
       <RootWithData>{children}</RootWithData>
     </Provider>
   );
@@ -23,7 +47,6 @@ export default function RootLayout({ children }) {
 
 function RootWithData({ children }) {
   const dispatch = useDispatch();
-
   // Load the data
   useEffect(() => {
     dispatch(fetchSellingData());

@@ -8,11 +8,16 @@ import Car from "../common/Car";
 import FormatPrices from "../common/FormatPrices";
 
 const ForSaleCard = (props) => {
+  console.log(props.imageSrc);
   return (
     <div className="forsale-card i-col30 i-fl">
       <div className="forsale-card-header">
         <Image
-          src={props.imageSrc}
+          src={
+            props.imageSrc
+              ? props.imageSrc
+              : "https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/no-image-available.webp"
+          }
           className="forsale-card-img"
           width={200}
           height={200}

@@ -22,14 +22,14 @@ const SearchFilter = (props) => {
   return (
     <div className="i-col100 i-fl">
       <div className="lfss-searchfilter">
-        <div className="i-col33 i-fl i-padd">
+        <div className="i-col100 i-fl">
           <DisplaySlider
             slider={props.sliders.price}
             values={props.search.price}
             type="price"
             onSliderChange={props.onPriceSliderChange}
           >
-            PRICE
+            Price
           </DisplaySlider>
           <DisplaySlider
             slider={props.sliders.houseArea}
@@ -37,7 +37,7 @@ const SearchFilter = (props) => {
             type="sqrmeters"
             onSliderChange={props.onHouseAreaSliderChange}
           >
-            HOUSE AREA
+            House Area
           </DisplaySlider>
           <DisplaySlider
             slider={props.sliders.floorArea}
@@ -45,10 +45,10 @@ const SearchFilter = (props) => {
             type="sqrmeters"
             onSliderChange={props.onFloorAreaSliderChange}
           >
-            FLOOR AREA
+            Floor Area
           </DisplaySlider>
         </div>
-        <div className="i-col33 i-fl i-padd align-center">
+        <div className="i-col100 i-fl align-center">
           <DisplayButtonOptions
             options={props.search.bed.options}
             selected={props.search.bed.selected}
@@ -74,7 +74,7 @@ const SearchFilter = (props) => {
             Cars
           </DisplayButtonOptions>
         </div>
-        <div className="i-col33 i-fl i-padd">
+        <div className="i-col100 i-fl">
           <DisplaySelectDropdown
             options={props.search.type.options}
             defaultValue={props.search.type.selected}
@@ -186,9 +186,7 @@ const DisplayValues = (props) => {
 
 const DisplayButtonOptions = (props) => {
   return (
-    <div
-      className={`i-col100 hals-options i-posr ${props.addclass} padd-left-2rem i-fl`}
-    >
+    <div className={`i-col100 hals-options i-posr ${props.addclass} i-fl`}>
       <div className="hals-options hals-options-title i-posr">
         {props.children}
       </div>
