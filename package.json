@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
-    "multi-slider": "^4.1.0",
     "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "multi-slider": "^4.1.0",
     "react-hook-form": "^7.53.0",
     "react-redux": "^9.1.2",
     "react-render-html": "^0.6.0",
