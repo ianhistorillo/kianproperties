@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm install --legacy-peer-deps && next build",
+    "preinstall": "npm install --legacy-peer-deps",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -25,8 +26,5 @@
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.4"
-  },
-  "engines": {
-    "node": "16.x"
   }
 }
