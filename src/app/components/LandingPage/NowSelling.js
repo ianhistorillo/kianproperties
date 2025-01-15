@@ -19,20 +19,23 @@ const NowSelling = (props) => {
           <span className="underline"></span>
         </div>
         <div className="i-col100 now-selling-section">
-          <div className="i-col100 i-fl">
+          <div className="i-col20 now-selling-filtersticky i-fl">
             <div className="now-selling-filter">
+              <span className="filter-by-title"> Filter By: </span>
               <SearchFilter />
             </div>
           </div>
-          <div className="i-col100 i-fl">
-            <div className="now-selling-section-list">
-              {itemSelling.length > 0 ? (
-                <DisplaySellingSection itemSelling={itemSelling} />
-              ) : (
-                <h1>
-                  No Selling Item Found. Please expand your search criteria{" "}
-                </h1>
-              )}
+          <div className="i-col80 now-selling-scrollable-element scrollable-element">
+            <div className="i-fr now-selling-scrollable-content">
+              <div className="now-selling-section-list">
+                {itemSelling.length > 0 ? (
+                  <DisplaySellingSection itemSelling={itemSelling} />
+                ) : (
+                  <div className="int-loader">
+                    <h3> No selling items displayed at the moment.</h3>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -41,7 +44,13 @@ const NowSelling = (props) => {
   } else {
     return (
       <div className="now-selling-page">
-        <h3> No selling items displayed at the moment.</h3>
+        <div className="i-col100 now-selling-title">
+          <h1> NOW SELLING </h1>
+          <span className="underline"></span>
+        </div>
+        <div className="i-col100 now-selling-section">
+          <div className="int-loader"></div>
+        </div>
       </div>
     );
   }
@@ -63,7 +72,7 @@ const DisplaySellingSection = (props) => {
           bath={item.bath}
           car={item.car}
           area={item.area}
-          slug={item.id}
+          slug={item.url_slug}
         />
       );
     });

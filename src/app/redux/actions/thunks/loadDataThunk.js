@@ -8,9 +8,11 @@ export const fetchSellingData = () => {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        "http://localhost:8888/kianproperties/wp-json/wp/v2/posts/?acf_format=standard&per_page=100"
+        "https://azure-lobster-898138.hostingersite.com/wp-json/wp/v2/posts/?acf_format=standard&per_page=100"
       );
       const data = await response.json();
+
+      console.log(data);
 
       const result = {
         nowselling: {

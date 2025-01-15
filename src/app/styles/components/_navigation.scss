@@ -8,6 +8,62 @@
   margin: auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  z-index: 100;
+
+  &.other-page {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s all ease;
+
+    .nav {
+      a {
+        color: $black;
+      }
+    }
+  }
+
+  &.reveal {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s all ease;
+
+    .fade-right {
+      a {
+        color: $black;
+        animation: fade-right 0.3s ease-in;
+      }
+    }
+  }
+
+  .fade-left {
+    a {
+      color: $black;
+      animation: fade-left 0.3s ease-in;
+    }
+  }
+
+  @keyframes fade-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   @include mobile-lg {
     background-color: $primary;
     bottom: 0;
@@ -21,9 +77,10 @@
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
-  max-width: 1280px;
   margin: auto;
   color: $black;
+  margin-left: 5%;
+  margin-right: 5%;
 
   a {
     padding: 5px 1rem;

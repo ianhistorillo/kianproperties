@@ -15,7 +15,7 @@ import CounterComponent from "./components/CounterComponent";
 export default function Home() {
   return (
     <div>
-      <Navigation />
+      <Navigation type="main-page" />
       <div className="main enableBlur">
         <div className="i-container i-col100 landing-page fade-in-image disableBlur">
           <div className="border-left"></div>
