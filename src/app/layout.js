@@ -38,7 +38,6 @@ export default function RootLayout({ children }) {
             type="image/svg+xml"
           />
         </head>
-        <body>{children}</body>
       </html>
       <RootWithData>{children}</RootWithData>
     </Provider>

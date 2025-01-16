@@ -8,7 +8,6 @@ import Car from "../common/Car";
 import FormatPrices from "../common/FormatPrices";
 
 const ForSaleCard = (props) => {
-  console.log(props.imageSrc);
   return (
     <div className="forsale-card i-col30 i-fl">
       <div className="forsale-card-header">
