@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 //other libraries or components
 import FormatPrice from "../components/common/FormatPrice";
-// import MultiSlider from "multi-slider";
+import MultiSlider from "multi-slider";
 
 // action constants
 import sliderChangeHouseArea from "../redux/actions/landActions/sliderChangeHouseArea";
@@ -23,7 +23,7 @@ const SearchFilter = (props) => {
     <div className="i-col100 i-fl">
       <div className="lfss-searchfilter">
         <div className="i-col100 i-fl">
-          {/* <DisplaySlider
+          <DisplaySlider
             slider={props.sliders.price}
             values={props.search.price}
             type="price"
@@ -46,7 +46,7 @@ const SearchFilter = (props) => {
             onSliderChange={props.onFloorAreaSliderChange}
           >
             Floor Area
-          </DisplaySlider> */}
+          </DisplaySlider>
         </div>
         <div className="i-col100 i-fl align-center">
           <DisplayButtonOptions
@@ -129,6 +129,7 @@ const DisplaySlider = (props) => {
           colors={["#631F44", "#631F44 ", "#631F44"]}
           values={[props.slider.start, props.slider.middle, props.slider.end]}
           onChange={props.onSliderChange}
+          padX={13}
           handleSize={12}
           height={40}
           handleInnerDotSize={10.4}

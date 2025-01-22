@@ -24,6 +24,8 @@ const LandPages = (props) => {
     return elem.url_slug === props.slug;
   });
 
+  console.log(selectedItem);
+
   return (
     <div>
       <div className="i-col60 i-fl padd-right-2rem">
@@ -39,7 +41,10 @@ const LandPages = (props) => {
             Price: <FormatPrices>{selectedItem[0].price}</FormatPrices>
           </div>
           <div className="for-sale-detail-area">
-            Area: <span>{selectedItem[0].area}</span> SQM
+            Lot Area: <span>{selectedItem[0].lotArea}</span> SQM
+          </div>
+          <div className="for-sale-detail-area">
+            Floor Area: <span>{selectedItem[0].floorArea}</span> SQM
           </div>
           <div className="for-sale-detail-type">
             Selling Type: <span>{selectedItem[0].selling_type[0]}</span>

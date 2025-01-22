@@ -71,7 +71,8 @@ const DisplaySellingSection = (props) => {
           bed={item.bed}
           bath={item.bath}
           car={item.car}
-          area={item.area}
+          lotArea={item.lot_area}
+          floorArea={item.floor_area}
           slug={item.url_slug}
         />
       );
