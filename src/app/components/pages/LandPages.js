@@ -16,15 +16,13 @@ import { connect } from "react-redux";
 
 import FormatPrices from "@/app/components/common/FormatPrices";
 
-// import renderHTML from "react-render-html";
+import renderHTML from "react-render-html";
 
 const LandPages = (props) => {
   let itemSelling = Object.values(props.filteredlist);
   let selectedItem = itemSelling.filter((elem) => {
     return elem.url_slug === props.slug;
   });
-
-  console.log(selectedItem);
 
   return (
     <div>
@@ -69,7 +67,7 @@ const LandPages = (props) => {
         <div className="i-col50 i-fr"></div>
         <div className="i-col100 i-fl for-sale-detail-content">
           <h3> Additional Details: </h3>
-          {/*renderHTML(selectedItem[0].details) */}
+          {renderHTML(selectedItem[0].details)}
         </div>
       </div>
     </div>
@@ -119,7 +117,6 @@ const ImageCarousel = (props) => {
 
 // Map Redux state to component props
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     filteredlist: state.nowselling.filteredlist || [],
   };
