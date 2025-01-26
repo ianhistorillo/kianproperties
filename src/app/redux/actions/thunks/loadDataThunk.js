@@ -8,7 +8,7 @@ export const fetchSellingData = () => {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        "https://azure-lobster-898138.hostingersite.com/wp-json/wp/v2/posts/?acf_format=standard&per_page=100"
+        "https://mediumslateblue-otter-668926.hostingersite.com/wp-json/wp/v2/posts/?acf_format=standard&per_page=100"
       );
       const data = await response.json();
 
