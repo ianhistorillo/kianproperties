@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "azure-lobster-898138.hostingersite.com",
+        hostname: "mediumslateblue-otter-668926.hostingersite.com",
         // port: "3000",
         // pathname: "/assets/*",
       },
