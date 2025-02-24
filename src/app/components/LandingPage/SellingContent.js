@@ -105,7 +105,7 @@ const SellingContent = () => {
                 <p>
                   {" "}
                   Discover the perfect blend of comfort and convenience with our
-                  stunning house and land packages. Whether you're a first-time
+                  stunning house and land packages. Whether you`re a first-time
                   buyer or looking to invest, we offer a diverse range of
                   properties tailored to your lifestyle.
                 </p>

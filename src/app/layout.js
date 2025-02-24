@@ -30,11 +30,11 @@ export default function RootLayout({ children }) {
           />
           <meta
             property="og:image"
-            content={`https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/footer-bg-scaled.jpeg`}
+            content={`https://mediumslateblue-otter-668926.hostingersite.com/wp-content/uploads/2025/02/footer-bg-scaled.jpeg`}
           />
           <link
             rel="icon"
-            href="https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/laugh-room-1.png"
+            href="https://mediumslateblue-otter-668926.hostingersite.com/wp-content/uploads/2025/01/laugh-room-1.png"
             type="image/svg+xml"
           />
         </head>

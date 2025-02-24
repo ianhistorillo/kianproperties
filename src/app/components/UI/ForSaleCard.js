@@ -15,7 +15,7 @@ const ForSaleCard = (props) => {
           src={
             props.imageSrc
               ? props.imageSrc
-              : "https://azure-lobster-898138.hostingersite.com/wp-content/uploads/2025/01/no-image-available.webp"
+              : "https://mediumslateblue-otter-668926.hostingersite.com/wp-content/uploads/2025/02/no-image-available.webp"
           }
           className="forsale-card-img"
           width={200}
