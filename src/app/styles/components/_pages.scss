@@ -150,9 +150,11 @@
     margin-top: 2rem;
 
     .search-buttons {
-      display: block;
-      width: auto;
       margin-bottom: 4rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
 
       .search,
       .reset {
@@ -260,15 +262,22 @@
 .hals- {
   &options {
     width: 100%;
+    display: inline-block;
 
     &.i-posr {
       position: relative;
     }
+
+    &-input {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      /* row-gap: 1rem; */
+      align-items: center;
+    }
   }
 
   &options {
-    display: inline-block;
-
     &-title {
       @include font-monsterrat;
       width: 20%;
@@ -350,7 +359,7 @@
     }
 
     &-select {
-      width: 80%;
+      width: 70%;
       &.lfs-filter {
         width: 60%;
         padding-left: 2rem;
@@ -601,10 +610,11 @@
     z-index: 10;
   }
   &-scrollable-element {
-    height: 100vh; /* Full viewport height */
+    height: 115vh; /* Full viewport height */
     overflow-y: auto; /* Allow vertical scrolling */
     flex-grow: 1; /* Make the right side fill the remaining space */
-    padding-left: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
   &-scrollable-content {
     height: 150vh;

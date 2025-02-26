@@ -24,7 +24,7 @@ const LandForSale = (props) => {
         <Navigation type="other-page" />
         <div className="now-selling-page">
           <div className="i-col100 now-selling-title">
-            <h1> LAND FOR SALE </h1>
+            <h1> CONDOMINIUM </h1>
             <span className="underline"></span>
           </div>
           <div className="i-col100 now-selling-section">
@@ -55,7 +55,7 @@ const LandForSale = (props) => {
     return (
       <div className="now-selling-page">
         <div className="i-col100 now-selling-title">
-          <h1> LAND FOR SALE </h1>
+          <h1> CONDOMINIUM</h1>
           <span className="underline"></span>
         </div>
         <div className="i-col100 now-selling-section">

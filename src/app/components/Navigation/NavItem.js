@@ -8,7 +8,11 @@ import React from "react";
 
 const NavItem = (props) => {
   return (
-    <a className={`nav-icon`} href={props.route} aria-current="page">
+    <a
+      className={`nav-icon ${props.class ? props.class : ""}`}
+      href={props.route}
+      aria-current="page"
+    >
       <div>
         <small>{props.name}</small>
       </div>

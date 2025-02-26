@@ -26,7 +26,7 @@ const NowSelling = (props) => {
             </div>
           </div>
           <div className="i-col80 now-selling-scrollable-element scrollable-element">
-            <div className="i-fr now-selling-scrollable-content">
+            <div className="i-col100 i-fr now-selling-scrollable-content">
               <div className="now-selling-section-list">
                 {itemSelling.length > 0 ? (
                   <DisplaySellingSection itemSelling={itemSelling} />

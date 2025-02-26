@@ -54,7 +54,8 @@
   &-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 3.65rem;
     align-items: center;
 
     .forsale-card {

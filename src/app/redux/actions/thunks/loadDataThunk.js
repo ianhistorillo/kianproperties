@@ -1,6 +1,4 @@
 "use client";
-import { useState } from "react";
-import lfsconstants from "../../constants/LandConstants";
 import nowSellingPayload from "../landActions/nowSellingPayload";
 
 // redux/actions/dataActions.js
@@ -12,11 +10,9 @@ export const fetchSellingData = () => {
       );
       const data = await response.json();
 
-      console.log(data);
-
       const result = {
         nowselling: {
-          list: data.reduce((acc, element, index) => {
+          list: data.reverse().reduce((acc, element, index) => {
             acc[index] = element.acf;
             return acc;
           }, {}),

@@ -7,19 +7,26 @@ const Navigation = (props) => {
   useEffect(() => {
     const reveal = () => {
       let mainNav = document.querySelector(".navigation");
-      let navContainer = document.querySelector(".nav-container");
+      let navContainerHeader = document.querySelector(".nav-container-header");
+      let navContainerOptions = document.querySelector(
+        ".nav-container-options"
+      );
       let elementTop = mainNav.getBoundingClientRect().top + window.scrollY;
       let elementVisible = 700;
       let windowHeight = window.innerHeight;
 
       if (elementTop > windowHeight - elementVisible) {
         mainNav.classList.add("reveal");
-        navContainer.classList.remove("fade-right");
-        navContainer.classList.add("fade-left");
+        navContainerHeader.classList.remove("fade-right");
+        navContainerHeader.classList.add("fade-left");
+        navContainerOptions.classList.remove("fade-right");
+        navContainerOptions.classList.add("fade-left");
       } else {
         mainNav.classList.remove("reveal");
-        navContainer.classList.remove("fade-left");
-        navContainer.classList.add("fade-right");
+        navContainerHeader.classList.remove("fade-left");
+        navContainerHeader.classList.add("fade-right");
+        navContainerOptions.classList.remove("fade-left");
+        navContainerOptions.classList.add("fade-right");
       }
     };
 
@@ -32,7 +39,10 @@ const Navigation = (props) => {
   return (
     <div className={`navigation ${props.type}`}>
       <div className="nav">
-        <div className="nav-container">
+        <div className="nav-container nav-container-header i-fl">
+          <NavItem name="Kian Properties" class="header" route="/" />
+        </div>
+        <div className="nav-container nav-container-options i-fr">
           <NavItem
             name="Land For Sale"
             route="/land-for-sale"
