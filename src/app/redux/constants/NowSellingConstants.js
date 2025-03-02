@@ -1,5 +1,5 @@
-const lfsconstants = {
-  LAND_PAYLOAD: "LAND_PAYLOAD",
+const nwsconstants = {
+  NOW_SELLING_PAYLOAD: "NOW_SELLING_PAYLOAD",
   SLIDER_CHANGE_PRICE: "SLIDER_CHANGE_PRICE",
   SLIDER_CHANGE_HOUSE_AREA: "SLIDER_CHANGE_HOUSE_AREA",
   SLIDER_CHANGE_LOT_AREA: "SLIDER_CHANGE_LOT_AREA",
@@ -12,4 +12,4 @@ const lfsconstants = {
   RESET_CLICK: "RESET_CLICK",
 };
 
-export default lfsconstants;
+export default nwsconstants;

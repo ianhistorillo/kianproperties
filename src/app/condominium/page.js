@@ -104,8 +104,8 @@ const DisplaySellingSection = (props) => {
 // Map Redux state to component props
 const mapStateToProps = (state) => {
   return {
-    nowselling: state.nowselling.list || [],
-    filteredlist: state.nowselling.filteredlist || [],
+    nowselling: state.condominium.list || [],
+    filteredlist: state.condominium.filteredlist || [],
   };
 };
 

@@ -1,8 +1,8 @@
 "use client"; // Ensure this is a Client Component
 
-import lfsconstants from "../constants/LandConstants";
+import nwsconstants from "../constants/NowSellingConstants";
 
-const landReducerInitialState = {
+const nowSellingReducerInitialState = {
   sliders: {
     floorArea: {
       start: 0,
@@ -145,7 +145,7 @@ function searchList(list, search) {
   return flist;
 }
 
-const landReducer = (state = landReducerInitialState, action) => {
+const nowSellingReducer = (state = nowSellingReducerInitialState, action) => {
   let newState = null;
   let sliderchg = null;
   let searchchg = null;
@@ -153,7 +153,7 @@ const landReducer = (state = landReducerInitialState, action) => {
   let displayList = null;
 
   switch (action.type) {
-    case lfsconstants.LAND_PAYLOAD:
+    case nwsconstants.NOW_SELLING_PAYLOAD:
       newState = Object.assign({}, state, {
         list: action.payload.list,
         filteredlist: action.payload.list,
@@ -163,7 +163,7 @@ const landReducer = (state = landReducerInitialState, action) => {
     case "FETCH_DATA_FAILURE":
       return { ...state, loading: false, error: action.payload };
 
-    case lfsconstants.SLIDER_CHANGE_PRICE:
+    case nwsconstants.SLIDER_CHANGE_PRICE:
       // Do our calculations to work out our new positions
       newPos = calcNewSliderValues(action.payload, state.search.price);
 
@@ -200,7 +200,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
     // Handle other cases similarly...
 
-    case lfsconstants.SLIDER_CHANGE_HOUSE_AREA:
+    case nwsconstants.SLIDER_CHANGE_HOUSE_AREA:
       // do our calculations to work out our new positions
       newPos = calcNewSliderValues(action.payload, state.search.houseArea);
       // create a new object for the search element
@@ -235,7 +235,7 @@ const landReducer = (state = landReducerInitialState, action) => {
       };
 
       break;
-    case lfsconstants.SLIDER_CHANGE_LOT_AREA:
+    case nwsconstants.SLIDER_CHANGE_LOT_AREA:
       // do our calculations to work out our new positions
       newPos = calcNewSliderValues(action.payload, state.search.floorArea);
       // create a new object for the search element
@@ -270,7 +270,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
       break;
 
-    case lfsconstants.BED_SELECT_CHANGE:
+    case nwsconstants.BED_SELECT_CHANGE:
       // Create a new object for the search element, ensuring no mutation
       searchchg = {
         ...state.search, // Shallow copy of price
@@ -288,7 +288,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
       break;
 
-    case lfsconstants.BATH_SELECT_CHANGE:
+    case nwsconstants.BATH_SELECT_CHANGE:
       // Create a new object for the search element, ensuring no mutation
       searchchg = {
         ...state.search, // Shallow copy of price
@@ -306,7 +306,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
       break;
 
-    case lfsconstants.CAR_SELECT_CHANGE:
+    case nwsconstants.CAR_SELECT_CHANGE:
       // Create a new object for the search element, ensuring no mutation
       searchchg = {
         ...state.search, // Shallow copy of price
@@ -324,7 +324,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
       break;
 
-    case lfsconstants.SEARCH_CLICK:
+    case nwsconstants.SEARCH_CLICK:
       // Create a new object for the search element, ensuring no mutation
 
       displayList = searchList(state.list, state.search);
@@ -338,7 +338,7 @@ const landReducer = (state = landReducerInitialState, action) => {
 
       break;
 
-    case lfsconstants.RESET_CLICK:
+    case nwsconstants.RESET_CLICK:
       // Create a new object for the search element, ensuring no mutation
       searchchg = {
         ...state.search,
@@ -394,4 +394,4 @@ const landReducer = (state = landReducerInitialState, action) => {
   return newState;
 };
 
-export default landReducer;
+export default nowSellingReducer;
